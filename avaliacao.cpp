@@ -12,10 +12,30 @@ Data: 04/04/2022
 #include <stdlib.h>
 #include <iomanip>
 #include <conio.h> // Para usar o getch();
+#define TAM 10
+
 
 int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo=0; 
-int negativo=0, qntEleitor, voto, braCoo, henCav, ianSom, rodHil, chrPra, priSup,somVot, sindico;
+int negativo=0, braCoo, henCav, ianSom, rodHil, chrPra, priSup,somVot, sindico, qntEleitor;
 char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao;
+
+void bubble_sort_desc(int vetor[], int tam)
+{
+    int aux;
+
+    for (int i = 0; i < tam; i++)
+    {
+        for (int j = 0; j < tam; j++)
+        {
+            if (vetor[i] > vetor[j])
+            {
+                aux = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = aux;
+            }
+        }
+    }
+}
 
 using namespace std;
 main()
@@ -23,6 +43,7 @@ main()
     setlocale(LC_ALL, "Portuguese");
     system("color B");
     system("cls");
+    srand(time(NULL));
     cout << fixed << setprecision(2);
 
     cout << "ATIVIDADE AVALIATIVA DE INTRODUÇÃO A PROGRAMAÇÃO \n";
@@ -317,14 +338,106 @@ main()
             cout << "\n\n Insira a quantidade de ELEITORES: ";
             cin >> qntEleitor;
 
-            cout << "\n >>> Edificio Cordas Bambas apresenta seus Candidatos <<< ";
+           /* cout << "\n >>> Edificio Cordas Bambas apresenta seus Candidatos <<< ";
             cout << "\n\t [1] - Henry Cavill";
             cout << "\n\t [2] - Ian Somerhalder";
             cout << "\n\t [3] - Rodrigo Hilbert";
             cout << "\n\t [4] - Chris Pratt";
-            cout << "\n\t [5] - Bradley Cooper";
+            cout << "\n\t [5] - Bradley Cooper";*/
 
-                for(i=1;i<=qntEleitor;i++){
+            int voto[TAM];
+
+            for (int i = 0; i < qntEleitor; i++)
+            {
+                voto[i] = (rand()%5) + 1;
+            }
+
+            /*for (int i = 0; i < qntEleitor; i++)
+            {
+                cout << " | " << voto[i];
+            }*/
+
+            for (int i = 0; i < qntEleitor; i++)
+            {
+                if (voto[i]==1)
+                {
+                    henCav++;
+                } else if (voto[i]==2)
+                {
+                    ianSom++;
+                } else if (voto[i]==3)
+                {
+                    rodHil++;
+                } else if (voto[i]==4)
+                {
+                    chrPra++;
+                } else if (voto[i]==5)
+                {
+                    braCoo++;
+                }
+            }
+
+            int aux[5]{henCav,ianSom,rodHil,chrPra,braCoo};
+
+            bubble_sort_desc(aux,5);
+
+            for (int i = 0; i < 5; i++)
+            {
+                cout << " | " << aux[i];
+            }
+
+            for (i=0;i<qntEleitor;i++)
+            {
+                if (i==0)
+                {
+                    sindico = aux[i];
+                }
+                if (aux[i]>sindico)
+                {
+                    sindico = aux[i];
+                }
+            }
+            
+            if(aux[0]==1){
+                cout << "\n\n O novo sindico é Henry Cavill com " <<henCav<< " votos!";
+            } else if (aux[0]==2){
+                cout << "\n\n O novo sindico é Ian Somerhalder com " <<ianSom<< " votos!";
+            } else if (aux[0]==3){
+                cout << "\n\n O novo sindico é Rodrigo Hilbert com " <<rodHil<< " votos!";
+            } else if (aux[0]==4){
+                cout << "\n\n O novo sindico é Chris Pratt com " <<chrPra<< " votos!";
+            } else if (aux[0]==5){
+                cout << "\n\n O novo sindico é Bradley Cooper com " <<braCoo<< " votos!";
+            }
+
+          /*  if (aux[1]==1){
+                cout << "\n\n O novo primeiro suplente é Henry Cavill com " <<henCav<< " votos!";
+            } else if (aux[1]==2){
+                cout << "\n\n O novo primeiro suplente é Ian Somerhalder com " <<ianSom<< " votos!";
+            } else if (aux[1]==3){
+                cout << "\n\n O novo primeiro suplente é Rodrigo Hilbert com " <<rodHil<< " votos!";
+            } else if (aux[1]==4){
+                cout << "\n\n O novo primeiro suplente é Chris Pratt com " <<chrPra<< " votos!";
+            } else if (aux[1]==5){
+                cout << "\n\n O novo primeiro suplente é Bradley Cooper com " <<braCoo<< " votos!";
+            }
+
+            if (aux[2]==1){
+                cout << "\n\n O novo segundo suplente é Henry Cavill com " <<henCav<< " votos!";
+            } else if (aux[2]==2){
+                cout << "\n\n O novo segundo suplente é Ian Somerhalder com " <<ianSom<< " votos!";
+            } else if (aux[2]==3){
+                cout << "\n\n O novo segundo suplente é Rodrigo Hilbert com " <<rodHil<< " votos!";
+            } else if (aux[2]==4){
+                cout << "\n\n O novo segundo suplente é Chris Pratt com " <<chrPra<< " votos!";
+            } else if (aux[2]==5){
+                cout << "\n\n O novo segundo suplente é Bradley Cooper com " <<braCoo<< " votos!";
+            }*/
+            
+
+            /*bubble_sort_cresc(voto,qntEleitor);*/
+
+                /*for(i=1;i<=qntEleitor;i++){
                     do{
                         cout << "\n\n Eleitor de número ["<<i<<"] >> Insira o número que corresponde ao seu candidato. VOTE CONSIENTE! >> \t";
                         cin >> voto;
@@ -403,7 +516,7 @@ main()
             cout << "\n\t [2] - Ian Somerhalder: " << ianSom << " VOTOS";
             cout << "\n\t [3] - Rodrigo Hilbert: " << rodHil << " VOTOS";
             cout << "\n\t [4] - Chris Pratt: " << chrPra << " VOTOS";
-            cout << "\n\t [5] - Bradley Cooper: " << braCoo << " VOTOS \n\n";
+            cout << "\n\t [5] - Bradley Cooper: " << braCoo << " VOTOS \n\n";*/
             system("pause");
             break;
         }
