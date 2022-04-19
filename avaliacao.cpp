@@ -3,7 +3,7 @@ Faculdade SENAC - Joinville - SC
 Profª: Cláudia Werlich
 Atividade Avaliativa de Introdução a Programação de Computadores
 ALUNA: Kemily Teixeira da Rosa
-Data: 04/04/2022
+Data Inicio: 04/04/2022
 (Altere a data conforme a entrega)
 */
 
@@ -14,12 +14,11 @@ Data: 04/04/2022
 #include <conio.h> // Para usar o getch();
 #define TAM 10
 
-
-int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo=0; 
-int negativo=0, braCoo, henCav, ianSom, rodHil, chrPra, priSup,somVot, sindico, qntEleitor;
+int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
+int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto;
 char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao;
 
-void bubble_sort_desc(int vetor[], int tam)
+/*void bubble_sort_desc(int vetor[], int tam)
 {
     int aux;
 
@@ -35,7 +34,7 @@ void bubble_sort_desc(int vetor[], int tam)
             }
         }
     }
-}
+} DEIXAR FUNÇÃO AQUI, CASO EU UTILIZE*/
 
 using namespace std;
 main()
@@ -43,7 +42,6 @@ main()
     setlocale(LC_ALL, "Portuguese");
     system("color B");
     system("cls");
-    srand(time(NULL));
     cout << fixed << setprecision(2);
 
     cout << "ATIVIDADE AVALIATIVA DE INTRODUÇÃO A PROGRAMAÇÃO \n";
@@ -60,13 +58,13 @@ main()
     {
         system("cls");
         cout << "\n ====================================================================================";
-        cout << "\n [1] Questão 01 - Investigação Criminal";
-        cout << "\n [2] Questão 02 - Eleição de Sindico";
-        cout << "\n [3] Questão 03 - Será liberada no dia 11/04/2022";
-        cout << "\n [4] Questão 04 - Será liberada no dia 11/04/2022";
-        cout << "\n [5] Questão 05 - Será liberada no dia 13/04/2022";
-        cout << "\n [6] Questão 06 - Será liberada no dia 13/04/2022";
-        cout << "\n [7] Questão 07 - Números Primos";
+        cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO - possivel reformular usando vetor
+        cout << "\n [2] Questão 02 - Eleição de Sindico"; // PARCIALMENTE PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE
+        cout << "\n [3] Questão 03 - Séries Matemáticas"; // AINDA NÃO INICIALIZADO
+        cout << "\n [4] Questão 04 - Será liberada no dia 20/04/2022";
+        cout << "\n [5] Questão 05 - Será liberada no dia 20/04/2022";
+        cout << "\n [6] Questão 06 - Será liberada no dia 20/04/2022";
+        cout << "\n [7] Questão 07 - Números Primos"; // OK PRONTO
         cout << "\n [8] FIM.";
         cout << "\n\n\n\n ESCOLHA UMA OPÇÃO --> ";
         cin >> op;
@@ -122,15 +120,15 @@ main()
                     cin >> dois;
                     dois = toupper(dois);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((dois == 'S') || (dois == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (dois == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (dois == 'N')
                         {
                             negativo++;
                         }
@@ -148,15 +146,15 @@ main()
                     cin >> tres;
                     tres = toupper(tres);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((tres == 'S') || (tres == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (tres == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (tres == 'N')
                         {
                             negativo++;
                         }
@@ -174,15 +172,15 @@ main()
                     cin >> quatro;
                     quatro = toupper(quatro);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((quatro == 'S') || (quatro == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (quatro == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (quatro == 'N')
                         {
                             negativo++;
                         }
@@ -200,15 +198,15 @@ main()
                     cin >> cinco;
                     cinco = toupper(cinco);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((cinco == 'S') || (cinco == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (cinco == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (cinco == 'N')
                         {
                             negativo++;
                         }
@@ -226,15 +224,15 @@ main()
                     cin >> seis;
                     seis = toupper(seis);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((seis == 'S') || (seis == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (seis == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (seis == 'N')
                         {
                             negativo++;
                         }
@@ -252,15 +250,15 @@ main()
                     cin >> sete;
                     sete = toupper(sete);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((sete == 'S') || (sete == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (sete == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (sete == 'N')
                         {
                             negativo++;
                         }
@@ -278,15 +276,15 @@ main()
                     cin >> oito;
                     oito = toupper(oito);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((oito == 'S') || (oito == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (oito == 'S')
                         {
                             positivo++;
                         }
-                        else if (um == 'N')
+                        else if (oito == 'N')
                         {
                             negativo++;
                         }
@@ -300,7 +298,7 @@ main()
 
                 cout << "\n\n Com base em suas respostas, você foi classificado como...";
 
-                if (positivo<4)
+                if (positivo < 4)
                 {
                     cout << "\n\n===============================================";
                     cout << "\n== INOCENTE... Até que se prove ao contrário ==";
@@ -312,14 +310,13 @@ main()
                     cout << "\n== POSSÍVEL CRIMINOSO ==";
                     cout << "\n========================\n\n";
                 }
-                else if ((positivo == 8)&&(negativo == 0))
+                else if ((positivo == 8) && (negativo == 0))
                 {
                     cout << "\n\n===========================";
                     cout << "\n==========ASSASSINO========";
                     cout << "\n===========================\n\n";
-
                 }
-                else if ((positivo == 4)&&(negativo == 4))
+                else if ((positivo == 4) && (negativo == 4))
                 {
                     cout << "\n\n========================";
                     cout << "\n======= SUSPEITO =======";
@@ -338,185 +335,329 @@ main()
             cout << "\n\n Insira a quantidade de ELEITORES: ";
             cin >> qntEleitor;
 
-           /* cout << "\n >>> Edificio Cordas Bambas apresenta seus Candidatos <<< ";
+            cout << "\n >>> Edificio Cordas Bambas apresenta seus Candidatos <<< ";
             cout << "\n\t [1] - Henry Cavill";
             cout << "\n\t [2] - Ian Somerhalder";
             cout << "\n\t [3] - Rodrigo Hilbert";
             cout << "\n\t [4] - Chris Pratt";
-            cout << "\n\t [5] - Bradley Cooper";*/
+            cout << "\n\t [5] - Bradley Cooper";
 
-            int voto[TAM];
-
-            for (int i = 0; i < qntEleitor; i++)
+            for (i = 1; i <= qntEleitor; i++)
             {
-                voto[i] = (rand()%5) + 1;
-            }
-
-            /*for (int i = 0; i < qntEleitor; i++)
-            {
-                cout << " | " << voto[i];
-            }*/
-
-            for (int i = 0; i < qntEleitor; i++)
-            {
-                if (voto[i]==1)
+                do
                 {
-                    henCav++;
-                } else if (voto[i]==2)
-                {
-                    ianSom++;
-                } else if (voto[i]==3)
-                {
-                    rodHil++;
-                } else if (voto[i]==4)
-                {
-                    chrPra++;
-                } else if (voto[i]==5)
-                {
-                    braCoo++;
-                }
-            }
-
-            int aux[5]{henCav,ianSom,rodHil,chrPra,braCoo};
-
-            bubble_sort_desc(aux,5);
-
-            for (int i = 0; i < 5; i++)
-            {
-                cout << " | " << aux[i];
-            }
-
-            for (i=0;i<qntEleitor;i++)
-            {
-                if (i==0)
-                {
-                    sindico = aux[i];
-                }
-                if (aux[i]>sindico)
-                {
-                    sindico = aux[i];
-                }
-            }
-            
-            if(aux[0]==1){
-                cout << "\n\n O novo sindico é Henry Cavill com " <<henCav<< " votos!";
-            } else if (aux[0]==2){
-                cout << "\n\n O novo sindico é Ian Somerhalder com " <<ianSom<< " votos!";
-            } else if (aux[0]==3){
-                cout << "\n\n O novo sindico é Rodrigo Hilbert com " <<rodHil<< " votos!";
-            } else if (aux[0]==4){
-                cout << "\n\n O novo sindico é Chris Pratt com " <<chrPra<< " votos!";
-            } else if (aux[0]==5){
-                cout << "\n\n O novo sindico é Bradley Cooper com " <<braCoo<< " votos!";
-            }
-
-          /*  if (aux[1]==1){
-                cout << "\n\n O novo primeiro suplente é Henry Cavill com " <<henCav<< " votos!";
-            } else if (aux[1]==2){
-                cout << "\n\n O novo primeiro suplente é Ian Somerhalder com " <<ianSom<< " votos!";
-            } else if (aux[1]==3){
-                cout << "\n\n O novo primeiro suplente é Rodrigo Hilbert com " <<rodHil<< " votos!";
-            } else if (aux[1]==4){
-                cout << "\n\n O novo primeiro suplente é Chris Pratt com " <<chrPra<< " votos!";
-            } else if (aux[1]==5){
-                cout << "\n\n O novo primeiro suplente é Bradley Cooper com " <<braCoo<< " votos!";
-            }
-
-            if (aux[2]==1){
-                cout << "\n\n O novo segundo suplente é Henry Cavill com " <<henCav<< " votos!";
-            } else if (aux[2]==2){
-                cout << "\n\n O novo segundo suplente é Ian Somerhalder com " <<ianSom<< " votos!";
-            } else if (aux[2]==3){
-                cout << "\n\n O novo segundo suplente é Rodrigo Hilbert com " <<rodHil<< " votos!";
-            } else if (aux[2]==4){
-                cout << "\n\n O novo segundo suplente é Chris Pratt com " <<chrPra<< " votos!";
-            } else if (aux[2]==5){
-                cout << "\n\n O novo segundo suplente é Bradley Cooper com " <<braCoo<< " votos!";
-            }*/
-            
-
-            /*bubble_sort_cresc(voto,qntEleitor);*/
-
-                /*for(i=1;i<=qntEleitor;i++){
-                    do{
-                        cout << "\n\n Eleitor de número ["<<i<<"] >> Insira o número que corresponde ao seu candidato. VOTE CONSIENTE! >> \t";
-                        cin >> voto;
-                            if(voto == 1){
-                                y = 1;
-                                henCav++;
-                            } else if(voto == 2){
-                                y = 1;
-                                ianSom++;
-                            } else if(voto == 3){
-                                y = 1;
-                                rodHil++;
-                            } else if (voto == 4){
-                                y = 1;
-                                chrPra++;
-                            } else if (voto == 5){
-                                y = 1;
-                                braCoo++;
-                            }
-                            else if ((voto <1)||(voto>5)||(voto=0)){
-                                y = 0;
-                                cout << "\n\n VOTO INVÁLIDO! Não são permitidos votos NULOS ou EM BRANCO! Tente novamente...";
-                            }
-                    } while (y = 0);
-
-                    if (henCav>ianSom&&henCav>rodHil&&henCav>chrPra&&henCav>braCoo){
-                        sindico = 1;
+                    cout << "\n\n Eleitor de número [" << i << "] >> Insira o número que corresponde ao seu candidato. VOTE CONSIENTE! >> \t";
+                    cin >> voto;
+                    if (voto == 1)
+                    {
+                        y = 1;
+                        henCav++;
                     }
-                        else if (ianSom>henCav&&ianSom>rodHil&&ianSom>chrPra&&ianSom>braCoo){
-                            sindico = 2;
-                        }
-                            else if (rodHil>henCav&&rodHil>ianSom&&rodHil>chrPra&&rodHil>braCoo){
-                                sindico = 3;
-                            }
-                                else if (chrPra>henCav&&chrPra>ianSom&&chrPra>rodHil&&chrPra>braCoo){
-                                    sindico = 4;
-                                }
-                                    else if (braCoo>henCav&&braCoo>ianSom&&braCoo>rodHil&&braCoo>chrPra){
-                                        sindico = 5;
-                                    }         
+                    else if (voto == 2)
+                    {
+                        y = 1;
+                        ianSom++;
+                    }
+                    else if (voto == 3)
+                    {
+                        y = 1;
+                        rodHil++;
+                    }
+                    else if (voto == 4)
+                    {
+                        y = 1;
+                        chrPra++;
+                    }
+                    else if (voto == 5)
+                    {
+                        y = 1;
+                        braCoo++;
+                    }
+                    else if ((voto < 1) || (voto > 5) || (voto = 0))
+                    {
+                        y = 0;
+                        i = i - 1;
+                        cout << "\n\n VOTO INVÁLIDO! Não são permitidos votos NULOS ou EM BRANCO! Tente novamente...";
+                    }
+                } while (y = 0);
+
+                if (henCav > ianSom && henCav > rodHil && henCav > chrPra && henCav > braCoo)
+                {
+                    sindico = 1;
                 }
+                else if (ianSom > henCav && ianSom > rodHil && ianSom > chrPra && ianSom > braCoo)
+                {
+                    sindico = 2;
+                }
+                else if (rodHil > henCav && rodHil > ianSom && rodHil > chrPra && rodHil > braCoo)
+                {
+                    sindico = 3;
+                }
+                else if (chrPra > henCav && chrPra > ianSom && chrPra > rodHil && chrPra > braCoo)
+                {
+                    sindico = 4;
+                }
+                else if (braCoo > henCav && braCoo > ianSom && braCoo > rodHil && braCoo > chrPra)
+                {
+                    sindico = 5;
+                }
+            }
             switch (sindico)
             {
             case 1:
-                cout << "\n\n O NOVO SINDICO ELEITO É: Henry Cavill" ;
+            {
+                cout << "\n\n O NOVO SINDICO ELEITO É: Henry Cavill";
+                if (ianSom > rodHil && ianSom > chrPra && ianSom > braCoo)
+                {
+                    priSup = 2;
+                }
+                else if (rodHil > ianSom && rodHil > chrPra && rodHil > braCoo)
+                {
+                    priSup = 3;
+                }
+                else if (chrPra > ianSom && chrPra > rodHil && chrPra > braCoo)
+                {
+                    priSup = 4;
+                }
+                else if (braCoo > ianSom && braCoo > rodHil && braCoo > chrPra)
+                {
+                    priSup = 5;
+                }
                 break;
+            }
             case 2:
-                cout << "\n\n O NOVO SINDICO ELEITO É: Ian Somerhalder" ;
+            {
+                cout << "\n\n O NOVO SINDICO ELEITO É: Ian Somerhalder";
+                if (henCav > rodHil && henCav > chrPra && henCav > braCoo)
+                {
+                    priSup = 1;
+                }
+                else if (rodHil > henCav && rodHil > chrPra && rodHil > braCoo)
+                {
+                    priSup = 3;
+                }
+                else if (chrPra > henCav && chrPra > rodHil && chrPra > braCoo)
+                {
+                    priSup = 4;
+                }
+                else if (braCoo > henCav && braCoo > rodHil && braCoo > chrPra)
+                {
+                    priSup = 5;
+                }
                 break;
+            }
+
             case 3:
-                cout << "\n\n O NOVO SINDICO ELEITO É: Rodrigo Hilbert" ;
+            {
+                cout << "\n\n O NOVO SINDICO ELEITO É: Rodrigo Hilbert";
+                if (henCav > ianSom && henCav > chrPra && henCav > braCoo)
+                {
+                    priSup = 1;
+                }
+                else if (ianSom > henCav && ianSom > chrPra && ianSom > braCoo)
+                {
+                    priSup = 2;
+                }
+                else if (chrPra > henCav && chrPra > ianSom && chrPra > braCoo)
+                {
+                    priSup = 4;
+                }
+                else if (braCoo > henCav && braCoo > ianSom && braCoo > chrPra)
+                {
+                    priSup = 5;
+                }
                 break;
+            }
             case 4:
-                cout << "\n\n O NOVO SINDICO ELEITO É: Chris Pratt" ;
+            {
+                cout << "\n\n O NOVO SINDICO ELEITO É: Chris Pratt";
+                if (henCav > ianSom && henCav > rodHil && henCav > braCoo)
+                {
+                    priSup = 1;
+                }
+                else if (ianSom > henCav && ianSom > rodHil && ianSom > braCoo)
+                {
+                    priSup = 2;
+                }
+                else if (rodHil > henCav && rodHil > ianSom && rodHil > braCoo)
+                {
+                    priSup = 3;
+                }
+                else if (braCoo > henCav && braCoo > ianSom && braCoo > rodHil)
+                {
+                    priSup = 5;
+                }
                 break;
+            }
+
             case 5:
-                cout << "\n\n O NOVO SINDICO ELEITO É: Bradley Cooper" ;
+            {
+                cout << "\n\n O NOVO SINDICO ELEITO É: Bradley Cooper";
+                if (henCav > ianSom && henCav > rodHil && henCav > chrPra)
+                {
+                    priSup = 1;
+                }
+                else if (ianSom > henCav && ianSom > rodHil && ianSom > chrPra)
+                {
+                    priSup = 2;
+                }
+                else if (rodHil > henCav && rodHil > ianSom && rodHil > chrPra)
+                {
+                    priSup = 3;
+                }
+                else if (chrPra > henCav && chrPra > ianSom && chrPra > rodHil)
+                {
+                    priSup = 4;
+                }
+                break;
+            }
+
             default:
                 break;
             }
 
-            somVot = henCav+ianSom+rodHil+chrPra+braCoo;
+            if (priSup == 1)
+            {
+                cout << "\n O NOVO 1º Suplente ELEITO É: Henry Cavill";
+                if (ianSom > rodHil && ianSom > chrPra && ianSom > braCoo && ianSom < henCav)
+                {
+                    segSup = 2;
+                }
+                else if (rodHil > ianSom && rodHil > chrPra && rodHil > braCoo && rodHil < henCav)
+                {
+                    segSup = 3;
+                }
+                else if (chrPra > ianSom && chrPra > rodHil && chrPra > braCoo && chrPra < henCav)
+                {
+                    segSup = 4;
+                }
+                else if (braCoo > ianSom && braCoo > rodHil && braCoo > chrPra && braCoo < henCav)
+                {
+                    segSup = 5;
+                }
+            }
+            if (priSup == 2)
+            {
+                cout << "\n O NOVO 1º Suplente ELEITO É: Ian Somerhalder";
+                if (henCav > rodHil && henCav > chrPra && henCav > braCoo && henCav < ianSom)
+                {
+                    segSup = 1;
+                }
+                else if (rodHil > henCav && rodHil > chrPra && rodHil > braCoo && rodHil < ianSom)
+                {
+                    segSup = 3;
+                }
+                else if (chrPra > henCav && chrPra > rodHil && chrPra > braCoo && chrPra < ianSom)
+                {
+                    segSup = 4;
+                }
+                else if (braCoo > henCav && braCoo > rodHil && braCoo > chrPra && braCoo < ianSom)
+                {
+                    segSup = 5;
+                }
+            }
+            if (priSup == 3)
+            {
+                cout << "\n O NOVO 1º Suplente ELEITO É: Rodrigo Hilbert";
+                if (henCav > ianSom && henCav > chrPra && henCav > braCoo && henCav < rodHil)
+                {
+                    segSup = 1;
+                }
+                else if (ianSom > henCav && ianSom > chrPra && ianSom > braCoo && ianSom < rodHil)
+                {
+                    segSup = 2;
+                }
+                else if (chrPra > henCav && chrPra > ianSom && chrPra > braCoo && chrPra < rodHil)
+                {
+                    segSup = 4;
+                }
+                else if (braCoo > henCav && braCoo > ianSom && braCoo > chrPra && braCoo < rodHil)
+                {
+                    segSup = 5;
+                }
+            }
+            if (priSup == 4)
+            {
+                cout << "\n O NOVO 1º Suplente ELEITO É: Chris Pratt";
+                if (henCav > ianSom && henCav > rodHil && henCav > braCoo && henCav < chrPra)
+                {
+                    segSup = 1;
+                }
+                else if (ianSom > henCav && ianSom > rodHil && ianSom > braCoo && ianSom < chrPra)
+                {
+                    segSup = 2;
+                }
+                else if (rodHil > henCav && rodHil > ianSom && rodHil > braCoo && rodHil < chrPra)
+                {
+                    segSup = 3;
+                }
+                else if (braCoo > henCav && braCoo > ianSom && braCoo > rodHil && braCoo < chrPra)
+                {
+                    segSup = 5;
+                }
+            }
+            if (priSup == 5)
+            {
+                cout << "\n O NOVO 1º Suplente ELEITO É: Bradley Cooper";
+                if (henCav > ianSom && henCav > rodHil && henCav > chrPra && henCav < braCoo)
+                {
+                    segSup = 1;
+                }
+                else if (ianSom > henCav && ianSom > rodHil && ianSom > chrPra && ianSom < braCoo)
+                {
+                    segSup = 2;
+                }
+                else if (rodHil > henCav && rodHil > ianSom && rodHil > chrPra && rodHil < braCoo)
+                {
+                    segSup = 3;
+                }
+                else if (chrPra > henCav && chrPra > ianSom && chrPra > rodHil && chrPra < braCoo)
+                {
+                    segSup = 4;
+                }
+            }
 
+            if (segSup == 1)
+            {
+                cout << "\n O NOVO 2º Suplente ELEITO É: Henry Cavill";
+            }
+            else if (segSup == 2)
+            {
+                cout << "\n O NOVO 2º Suplente ELEITO É: Ian Somerhalder";
+            }
+            else if (segSup == 3)
+            {
+                cout << "\n O NOVO 2º Suplente ELEITO É: Rodrigo Hilbert";
+            }
+            else if (segSup == 4)
+            {
+                cout << "\n O NOVO 2º Suplente ELEITO É: Chris Pratt";
+            }
+            else if (segSup == 5)
+            {
+                cout << "\n O NOVO 2º Suplente ELEITO É: Bradley Cooper";
+            }
+
+            somVot = henCav + ianSom + rodHil + chrPra + braCoo;
             cout << "\n\n ==========================";
             cout << "\n === INDICES DA ELEIÇÃO ===";
             cout << "\n ==========================";
-            cout << "\n\n Total de VOTOS: " <<somVot;
-            cout << "\n Total de ELEITORES: " <<qntEleitor;
-                if(somVot == qntEleitor){
-                   cout << " >>> ELEIÇÃO VALIDADA! <<<";
-                } else {
-                   cout << " >>> ELEIÇÃO ANULADA por DESCONFORMIDADE! <<<"; 
-                }
+            cout << "\n\n Total de VOTOS: " << somVot;
+            cout << "\n Total de ELEITORES: " << qntEleitor;
+            if (somVot == qntEleitor)
+            {
+                cout << " >>> ELEIÇÃO VALIDADA! <<<";
+            }
+            else
+            {
+                cout << " >>> ELEIÇÃO ANULADA por DESCONFORMIDADE! <<<";
+            }
             cout << "\n\n Total de Votos por Candidato";
             cout << "\n\t [1] - Henry Cavill: " << henCav << " VOTOS";
             cout << "\n\t [2] - Ian Somerhalder: " << ianSom << " VOTOS";
             cout << "\n\t [3] - Rodrigo Hilbert: " << rodHil << " VOTOS";
             cout << "\n\t [4] - Chris Pratt: " << chrPra << " VOTOS";
-            cout << "\n\t [5] - Bradley Cooper: " << braCoo << " VOTOS \n\n";*/
+            cout << "\n\t [5] - Bradley Cooper: " << braCoo << " VOTOS \n\n";
             system("pause");
             break;
         }
@@ -561,15 +702,17 @@ main()
                     repetir = toupper(repetir);
                     if (repetir == 'S')
                     {
-                    	contador = 0;
+                        contador = 0;
                         x = 1;
                     }
                     else if (repetir == 'N')
                     {
                         x = 2;
-                    } else {
-                    	cout << "\n\n >> OPÇÃO INVÁLIDA! << Finalizando programa...";
-					}
+                    }
+                    else
+                    {
+                        cout << "\n\n >> OPÇÃO INVÁLIDA! << Finalizando programa...";
+                    }
                 } while ((x == 0) || (x == 1));
                 system("pause");
                 break;
