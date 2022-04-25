@@ -16,12 +16,11 @@ Data Inicio: 04/04/2022
 
 int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
 int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto;
-char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao;
+char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao, resp[8];
 
 /*void bubble_sort_desc(int vetor[], int tam)
 {
     int aux;
-
     for (int i = 0; i < tam; i++)
     {
         for (int j = 0; j < tam; j++)
@@ -59,7 +58,7 @@ main()
         system("cls");
         cout << "\n ====================================================================================";
         cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO - possivel reformular usando vetor
-        cout << "\n [2] Questão 02 - Eleição de Sindico"; // PARCIALMENTE PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE
+        cout << "\n [2] Questão 02 - Eleição de Sindico"; // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
         cout << "\n [3] Questão 03 - Séries Matemáticas"; // AINDA NÃO INICIALIZADO
         cout << "\n [4] Questão 04 - Será liberada no dia 20/04/2022";
         cout << "\n [5] Questão 05 - Será liberada no dia 20/04/2022";
@@ -519,123 +518,22 @@ main()
             if (priSup == 1)
             {
                 cout << "\n O NOVO 1º Suplente ELEITO É: Henry Cavill";
-                if (ianSom > rodHil && ianSom > chrPra && ianSom > braCoo && ianSom < henCav)
-                {
-                    segSup = 2;
-                }
-                else if (rodHil > ianSom && rodHil > chrPra && rodHil > braCoo && rodHil < henCav)
-                {
-                    segSup = 3;
-                }
-                else if (chrPra > ianSom && chrPra > rodHil && chrPra > braCoo && chrPra < henCav)
-                {
-                    segSup = 4;
-                }
-                else if (braCoo > ianSom && braCoo > rodHil && braCoo > chrPra && braCoo < henCav)
-                {
-                    segSup = 5;
-                }
             }
             if (priSup == 2)
             {
                 cout << "\n O NOVO 1º Suplente ELEITO É: Ian Somerhalder";
-                if (henCav > rodHil && henCav > chrPra && henCav > braCoo && henCav < ianSom)
-                {
-                    segSup = 1;
-                }
-                else if (rodHil > henCav && rodHil > chrPra && rodHil > braCoo && rodHil < ianSom)
-                {
-                    segSup = 3;
-                }
-                else if (chrPra > henCav && chrPra > rodHil && chrPra > braCoo && chrPra < ianSom)
-                {
-                    segSup = 4;
-                }
-                else if (braCoo > henCav && braCoo > rodHil && braCoo > chrPra && braCoo < ianSom)
-                {
-                    segSup = 5;
-                }
             }
             if (priSup == 3)
             {
                 cout << "\n O NOVO 1º Suplente ELEITO É: Rodrigo Hilbert";
-                if (henCav > ianSom && henCav > chrPra && henCav > braCoo && henCav < rodHil)
-                {
-                    segSup = 1;
-                }
-                else if (ianSom > henCav && ianSom > chrPra && ianSom > braCoo && ianSom < rodHil)
-                {
-                    segSup = 2;
-                }
-                else if (chrPra > henCav && chrPra > ianSom && chrPra > braCoo && chrPra < rodHil)
-                {
-                    segSup = 4;
-                }
-                else if (braCoo > henCav && braCoo > ianSom && braCoo > chrPra && braCoo < rodHil)
-                {
-                    segSup = 5;
-                }
             }
             if (priSup == 4)
             {
                 cout << "\n O NOVO 1º Suplente ELEITO É: Chris Pratt";
-                if (henCav > ianSom && henCav > rodHil && henCav > braCoo && henCav < chrPra)
-                {
-                    segSup = 1;
-                }
-                else if (ianSom > henCav && ianSom > rodHil && ianSom > braCoo && ianSom < chrPra)
-                {
-                    segSup = 2;
-                }
-                else if (rodHil > henCav && rodHil > ianSom && rodHil > braCoo && rodHil < chrPra)
-                {
-                    segSup = 3;
-                }
-                else if (braCoo > henCav && braCoo > ianSom && braCoo > rodHil && braCoo < chrPra)
-                {
-                    segSup = 5;
-                }
             }
             if (priSup == 5)
             {
                 cout << "\n O NOVO 1º Suplente ELEITO É: Bradley Cooper";
-                if (henCav > ianSom && henCav > rodHil && henCav > chrPra && henCav < braCoo)
-                {
-                    segSup = 1;
-                }
-                else if (ianSom > henCav && ianSom > rodHil && ianSom > chrPra && ianSom < braCoo)
-                {
-                    segSup = 2;
-                }
-                else if (rodHil > henCav && rodHil > ianSom && rodHil > chrPra && rodHil < braCoo)
-                {
-                    segSup = 3;
-                }
-                else if (chrPra > henCav && chrPra > ianSom && chrPra > rodHil && chrPra < braCoo)
-                {
-                    segSup = 4;
-                }
-            }
-
-            if (segSup == 1)
-            {
-                cout << "\n O NOVO 2º Suplente ELEITO É: Henry Cavill";
-            }
-            else if (segSup == 2)
-            {
-                cout << "\n O NOVO 2º Suplente ELEITO É: Ian Somerhalder";
-            }
-            else if (segSup == 3)
-            {
-                cout << "\n O NOVO 2º Suplente ELEITO É: Rodrigo Hilbert";
-            }
-            else if (segSup == 4)
-            {
-                cout << "\n O NOVO 2º Suplente ELEITO É: Chris Pratt";
-            }
-            else if (segSup == 5)
-            {
-                cout << "\n O NOVO 2º Suplente ELEITO É: Bradley Cooper";
             }
 
             somVot = henCav + ianSom + rodHil + chrPra + braCoo;
