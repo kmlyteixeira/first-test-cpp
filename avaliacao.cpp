@@ -60,7 +60,7 @@ main()
         cout << "\n ====================================================================================";
         cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO 
         cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
-        cout << "\n [3] Questão 03 - Séries Matemáticas";    // AINDA NÃO INICIALIZADO
+        cout << "\n [3] Questão 03 - Séries Matemáticas";    // OK PRONTO
         cout << "\n [4] Questão 04 - Será liberada no dia 20/04/2022";
         cout << "\n [5] Questão 05 - Será liberada no dia 20/04/2022";
         cout << "\n [6] Questão 06 - Será liberada no dia 20/04/2022";
