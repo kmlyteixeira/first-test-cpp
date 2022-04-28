@@ -14,9 +14,10 @@ Data Inicio: 04/04/2022
 #include <conio.h> // Para usar o getch();
 #define TAM 10
 
-int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
+int i, j, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
 int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto;
-char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao, resp[8];
+float serie, resp;
+char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao;
 
 /*void bubble_sort_desc(int vetor[], int tam)
 {
@@ -58,8 +59,8 @@ main()
         system("cls");
         cout << "\n ====================================================================================";
         cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO - possivel reformular usando vetor
-        cout << "\n [2] Questão 02 - Eleição de Sindico"; // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
-        cout << "\n [3] Questão 03 - Séries Matemáticas"; // AINDA NÃO INICIALIZADO
+        cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
+        cout << "\n [3] Questão 03 - Séries Matemáticas";    // AINDA NÃO INICIALIZADO
         cout << "\n [4] Questão 04 - Será liberada no dia 20/04/2022";
         cout << "\n [5] Questão 05 - Será liberada no dia 20/04/2022";
         cout << "\n [6] Questão 06 - Será liberada no dia 20/04/2022";
@@ -556,6 +557,85 @@ main()
             cout << "\n\t [3] - Rodrigo Hilbert: " << rodHil << " VOTOS";
             cout << "\n\t [4] - Chris Pratt: " << chrPra << " VOTOS";
             cout << "\n\t [5] - Bradley Cooper: " << braCoo << " VOTOS \n\n";
+            system("pause");
+            break;
+        }
+
+        case 3:
+        {
+            cout << "\n ===================================";
+            cout << "\n == QUESTÃO 03 - SÉRIES NUMERICAS ==";
+            cout << "\n ===================================";
+            cout << "\n\n [1] - 1/2\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)";
+            cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) ";
+            cout << "\n\n [3] - 1/1x3 + 1/2x4 + 1/3x5 + 1/4x6... (Dois elementos do denominador de 1 em 1) ";
+            cout << "\n\n Para começar, escolha qual série deseja calcular >>> \t";
+            cin >> op;
+            switch (op)
+            {
+            case 1:
+            {
+                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
+                cin >> numero;
+
+                for (int i = 2; i <= numero; i++)
+                {
+                    resp = i;
+                    for (int j = 1; j <= 2; j++)
+                    {
+                        resp *= j;
+                    }
+
+                    serie = serie + (1 / resp);
+                }
+                cout << "\n O resultado da soma da sua série é: " << serie;
+
+                system("\n\npause");
+                break;
+            }
+
+            case 2:
+            {
+                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
+                cin >> numero;
+
+                for (int i = 2; i <= numero; i += 2)
+                {
+                    resp = i;
+                    for (int j = 1; j <= 2; j++)
+                    {
+                        resp *= j;
+                    }
+
+                    serie = serie + (1 / resp);
+                }
+                cout << "\n O resultado da soma da sua série é: " << serie;
+
+                system("\n\npause");
+                break;
+            }
+
+            case 3:
+            {
+                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
+                cin >> numero;
+                j = 3;
+                for (int i = 1; i <= numero; i++)
+                {
+                    resp = i * j;
+                    j++;
+                    serie = serie + (1 / resp);
+                }
+                cout << "\n O resultado da soma da sua série é: " << serie;
+
+                system("\n\npause");
+                break;
+            }
+
+            default:
+                break;
+            }
+
             system("pause");
             break;
         }
