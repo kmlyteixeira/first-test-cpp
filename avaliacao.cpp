@@ -14,10 +14,10 @@ Data Inicio: 04/04/2022
 #include <conio.h> // Para usar o getch();
 #define TAM 10
 
-int i, j, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
+int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
 int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto;
 float serie, resp;
-char escolha, repetir, um, dois, tres, quatro, cinco, seis, sete, oito, opcao;
+char escolha, repetir, opcao, respQuest[9];
 
 /*void bubble_sort_desc(int vetor[], int tam)
 {
@@ -58,7 +58,7 @@ main()
     {
         system("cls");
         cout << "\n ====================================================================================";
-        cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO - possivel reformular usando vetor
+        cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO 
         cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
         cout << "\n [3] Questão 03 - Séries Matemáticas";    // AINDA NÃO INICIALIZADO
         cout << "\n [4] Questão 04 - Será liberada no dia 20/04/2022";
@@ -76,14 +76,25 @@ main()
             cout << "\n == QUESTÃO 01 - INVESTIGAÇÃO CRIMINAL ==";
             cout << "\n ========================================";
             cout << "\n\n Você está pronto para responder ao questionário? [S]SIM [N]NÃO >>>\t ";
+            do{
             cin >> opcao;
             opcao = toupper(opcao);
             if (opcao == 'N')
             {
+                x=1;
                 cout << "\n\n OK. Volte quando estiver pronto. Até mais!\n\n";
                 system("pause");
                 break;
+            } else if (opcao == 'S')
+            {   
+                x=1;
+                cout << "\n\n OK. Vamos continuar: \n\n";
+                break;
+            } else {
+                x=0;
+                cout << "\n\n Não reconhecemos sua resposta, tente novamente...\n\n";
             }
+            } while (x==0);
             do
             {
                 cout << "\n\n >>> INVESTIGAÇÃO Assassinato na Casa Branca <<<";
@@ -91,18 +102,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Trocou mensagens com a vítima? <<<";
-                    cin >> um;
-                    um = toupper(um);
+                    cin >> respQuest[0];
+                    respQuest[0] = toupper(respQuest[0]);
 
-                    if ((um == 'S') || (um == 'N'))
+                    if ((respQuest[0] == 'S') || (respQuest[0] == 'N'))
                     {
                         x = 1;
 
-                        if (um == 'S')
+                        if (respQuest[0] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (um == 'N')
+                        } else if (respQuest[0] == 'N')
                         {
                             negativo++;
                         }
@@ -117,18 +127,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Esteve no local do crime? <<<";
-                    cin >> dois;
-                    dois = toupper(dois);
+                    cin >> respQuest[1];
+                    respQuest[1] = toupper(respQuest[1]);
 
-                    if ((dois == 'S') || (dois == 'N'))
+                    if ((respQuest[1] == 'S') || (respQuest[1] == 'N'))
                     {
                         x = 1;
 
-                        if (dois == 'S')
+                        if (respQuest[1] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (dois == 'N')
+                        } else if (respQuest[1] == 'N')
                         {
                             negativo++;
                         }
@@ -143,18 +152,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> É parente ou reside perto da vítima? <<<";
-                    cin >> tres;
-                    tres = toupper(tres);
+                    cin >> respQuest[2];
+                    respQuest[2] = toupper(respQuest[2]);
 
-                    if ((tres == 'S') || (tres == 'N'))
+                    if ((respQuest[2] == 'S') || (respQuest[2] == 'N'))
                     {
                         x = 1;
 
-                        if (tres == 'S')
+                        if (respQuest[2] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (tres == 'N')
+                        } else if (respQuest[2] == 'N')
                         {
                             negativo++;
                         }
@@ -169,18 +177,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Devia algum valor para a vítima? <<<";
-                    cin >> quatro;
-                    quatro = toupper(quatro);
+                    cin >> respQuest[3];
+                    respQuest[3] = toupper(respQuest[3]);
 
-                    if ((quatro == 'S') || (quatro == 'N'))
+                    if ((respQuest[3] == 'S') || (respQuest[3] == 'N'))
                     {
                         x = 1;
 
-                        if (quatro == 'S')
+                        if (respQuest[3] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (quatro == 'N')
+                        } else if (respQuest[3] == 'N')
                         {
                             negativo++;
                         }
@@ -195,18 +202,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Trabalha ou trabalhou com a vítima? <<<";
-                    cin >> cinco;
-                    cinco = toupper(cinco);
+                    cin >> respQuest[4];
+                    respQuest[4] = toupper(respQuest[4]);
 
-                    if ((cinco == 'S') || (cinco == 'N'))
+                    if ((respQuest[4] == 'S') || (respQuest[4] == 'N'))
                     {
                         x = 1;
 
-                        if (cinco == 'S')
+                        if (respQuest[4] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (cinco == 'N')
+                        }else if (respQuest[4] == 'N')
                         {
                             negativo++;
                         }
@@ -221,18 +227,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Possui algum tipo de relacionamento amoroso com a vítima? <<<";
-                    cin >> seis;
-                    seis = toupper(seis);
+                    cin >> respQuest[5];
+                    respQuest[5] = toupper(respQuest[5]);
 
-                    if ((seis == 'S') || (seis == 'N'))
+                    if ((respQuest[5] == 'S') || (respQuest[5] == 'N'))
                     {
                         x = 1;
 
-                        if (seis == 'S')
+                        if (respQuest[5] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (seis == 'N')
+                        }else if (respQuest[5] == 'N')
                         {
                             negativo++;
                         }
@@ -247,18 +252,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Ficou feliz pelo destino fatídico da vítima? <<<";
-                    cin >> sete;
-                    sete = toupper(sete);
+                    cin >> respQuest[6];
+                    respQuest[6] = toupper(respQuest[6]);
 
-                    if ((sete == 'S') || (sete == 'N'))
+                    if ((respQuest[6] == 'S') || (respQuest[6] == 'N'))
                     {
                         x = 1;
 
-                        if (sete == 'S')
+                        if (respQuest[6] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (sete == 'N')
+                        }else if (respQuest[6] == 'N')
                         {
                             negativo++;
                         }
@@ -273,18 +277,17 @@ main()
                 do
                 {
                     cout << "\n\n >>> Possui algum tipo de arma de fogo? <<<";
-                    cin >> oito;
-                    oito = toupper(oito);
+                    cin >> respQuest[7];
+                    respQuest[7] = toupper(respQuest[7]);
 
-                    if ((oito == 'S') || (oito == 'N'))
+                    if ((respQuest[7] == 'S') || (respQuest[7] == 'N'))
                     {
                         x = 1;
 
-                        if (oito == 'S')
+                        if (respQuest[7] == 'S')
                         {
                             positivo++;
-                        }
-                        else if (oito == 'N')
+                        }else if (respQuest[7] == 'N')
                         {
                             negativo++;
                         }
@@ -303,24 +306,32 @@ main()
                     cout << "\n\n===============================================";
                     cout << "\n== INOCENTE... Até que se prove ao contrário ==";
                     cout << "\n===============================================\n\n";
+                    positivo = 0;
+                    negativo = 0;
                 }
                 else if ((positivo >= 5) && (positivo <= 7))
                 {
                     cout << "\n\n========================";
                     cout << "\n== POSSÍVEL CRIMINOSO ==";
                     cout << "\n========================\n\n";
+                    positivo = 0;
+                    negativo = 0;
                 }
                 else if ((positivo == 8) && (negativo == 0))
                 {
                     cout << "\n\n===========================";
                     cout << "\n==========ASSASSINO========";
                     cout << "\n===========================\n\n";
+                    positivo = 0;
+                    negativo = 0;
                 }
                 else if ((positivo == 4) && (negativo == 4))
                 {
                     cout << "\n\n========================";
                     cout << "\n======= SUSPEITO =======";
                     cout << "\n========================\n\n";
+                    positivo = 0;
+                    negativo = 0;
                 }
                 opcao = 'N';
             } while (opcao == 'S');
@@ -566,7 +577,7 @@ main()
             cout << "\n ===================================";
             cout << "\n == QUESTÃO 03 - SÉRIES NUMERICAS ==";
             cout << "\n ===================================";
-            cout << "\n\n [1] - 1/2\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)";
+            cout << "\n\n [1] - 1/1\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)";
             cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) ";
             cout << "\n\n [3] - 1/1x3 + 1/2x4 + 1/3x5 + 1/4x6... (Dois elementos do denominador de 1 em 1) ";
             cout << "\n\n Para começar, escolha qual série deseja calcular >>> \t";
@@ -578,14 +589,9 @@ main()
                 cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
-                for (int i = 2; i <= numero; i++)
+                for (int i = 1; i <= numero; i++)
                 {
-                    resp = i;
-                    for (int j = 1; j <= 2; j++)
-                    {
-                        resp *= i;
-                    }
-
+                    resp = i*i;
                     serie = serie + (1 / resp);
                 }
                 cout << "\n O resultado da soma da sua série é: " << serie;
@@ -599,14 +605,9 @@ main()
                 cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
-                for (int i = 2; i <= numero; i += 2)
+                for (int i = 1; i <= numero; i += 2)
                 {
-                    resp = i;
-                    for (int j = 1; j <= 2; j++)
-                    {
-                        resp *= i;
-                    }
-
+                    resp = i*i;
                     serie = serie + (1 / resp);
                 }
                 cout << "\n O resultado da soma da sua série é: " << serie;
@@ -619,11 +620,11 @@ main()
             {
                 cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
-                j = 3;
+                aux = 3;
                 for (int i = 1; i <= numero; i++)
                 {
-                    resp = i * j;
-                    j++;
+                    resp = i * aux;
+                    aux++;
                     serie = serie + (1 / resp);
                 }
                 cout << "\n O resultado da soma da sua série é: " << serie;
