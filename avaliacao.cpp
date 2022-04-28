@@ -583,7 +583,7 @@ main()
                     resp = i;
                     for (int j = 1; j <= 2; j++)
                     {
-                        resp *= j;
+                        resp *= i;
                     }
 
                     serie = serie + (1 / resp);
@@ -604,7 +604,7 @@ main()
                     resp = i;
                     for (int j = 1; j <= 2; j++)
                     {
-                        resp *= j;
+                        resp *= i;
                     }
 
                     serie = serie + (1 / resp);
@@ -704,7 +704,7 @@ main()
                 cin >> fim;
                 for (int i = inicio; i <= fim; i++)
                 {
-                    if ((i == 0) || (i == 1))
+                    if ((i == 0) || (i == 1)) //pre determina que 0 e 1 não são primos 
                     {
                         nprimo = 1;
                     }
