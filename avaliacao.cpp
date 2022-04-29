@@ -586,7 +586,7 @@ main()
             {
             case 1:
             {
-                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
+                cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
                 for (int i = 1; i <= numero; i++)
@@ -594,15 +594,22 @@ main()
                     resp = i*i;
                     serie = serie + (1 / resp);
                 }
-                cout << "\n O resultado da soma da sua série é: " << serie;
-
-                system("\n\npause");
+                
+                cout << "\n\nResultado >>> ";
+                
+                for(int i = 1; i < numero; i++)
+                {
+            		cout<< "1/" <<i<<"\xB2";
+            		cout<< " + ";			
+				}
+				cout<< "1/" <<numero<<"\xB2 = ";
+                cout << serie << "\n\n";
                 break;
             }
 
             case 2:
             {
-                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
+                cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
                 for (int i = 1; i <= numero; i += 2)
@@ -610,15 +617,29 @@ main()
                     resp = i*i;
                     serie = serie + (1 / resp);
                 }
-                cout << "\n O resultado da soma da sua série é: " << serie;
-
-                system("\n\npause");
+                
+                cout << "\n\nResultado >>> ";
+                
+               //numero = numero+2;
+                
+               /* for(int i = 1; i <= numero; i+=2)
+                {
+                	for(int j = 1; j<=numero; i+=2){
+	                	if(i%2!=0){
+	                		cout<< "1/" <<i<<"\xB2";
+	            			cout<< " + ";	
+						}		
+					}			
+				}*/
+				
+				cout<< "1/" <<numero+2<<"\xB2 = ";
+            	cout << serie << "\n\n";
                 break;
             }
 
             case 3:
             {
-                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
+                cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
                 aux = 3;
                 for (int i = 1; i <= numero; i++)
@@ -627,9 +648,8 @@ main()
                     aux++;
                     serie = serie + (1 / resp);
                 }
-                cout << "\n O resultado da soma da sua série é: " << serie;
+                cout << "\n O resultado da soma da sua série é: " << serie<< "\n\n";
 
-                system("\n\npause");
                 break;
             }
 
@@ -637,7 +657,7 @@ main()
                 break;
             }
 
-            system("pause");
+            system("\n\npause");
             break;
         }
 
