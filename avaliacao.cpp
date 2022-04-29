@@ -577,9 +577,9 @@ main()
             cout << "\n ===================================";
             cout << "\n == QUESTÃO 03 - SÉRIES NUMERICAS ==";
             cout << "\n ===================================";
-            cout << "\n\n [1] - 1/1\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)";
-            cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) ";
-            cout << "\n\n [3] - 1/1x3 + 1/2x4 + 1/3x5 + 1/4x6... (Dois elementos do denominador de 1 em 1) ";
+            cout << "\n\n [1] - 1/1\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)"; //1,49
+            cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) "; //1,18
+            cout << "\n\n [3] - 1/1x3 + 1/2x4 + 1/3x5 + 1/4x6... (Dois elementos do denominador de 1 em 1) "; 
             cout << "\n\n Para começar, escolha qual série deseja calcular >>> \t";
             cin >> op;
             switch (op)
@@ -612,27 +612,20 @@ main()
                 cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
+                cout << "\n\nResultado >>> ";
+               
                 for (int i = 1; i <= numero; i += 2)
                 {
                     resp = i*i;
                     serie = serie + (1 / resp);
                 }
-                
-                cout << "\n\nResultado >>> ";
-                
-               //numero = numero+2;
-                
-               /* for(int i = 1; i <= numero; i+=2)
+
+                for (int i = 1; i < (numero*2)-1; i += 2)
                 {
-                	for(int j = 1; j<=numero; i+=2){
-	                	if(i%2!=0){
-	                		cout<< "1/" <<i<<"\xB2";
-	            			cout<< " + ";	
-						}		
-					}			
-				}*/
-				
-				cout<< "1/" <<numero+2<<"\xB2 = ";
+                    cout<< "1/" <<i<<"\xB2 ";
+                }
+
+				cout<< "1/" <<(numero*2)-1<<"\xB2 = ";
             	cout << serie << "\n\n";
                 break;
             }
