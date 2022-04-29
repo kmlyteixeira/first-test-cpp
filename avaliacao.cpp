@@ -577,8 +577,8 @@ main()
             cout << "\n ===================================";
             cout << "\n == QUESTÃO 03 - SÉRIES NUMERICAS ==";
             cout << "\n ===================================";
-            cout << "\n\n [1] - 1/1\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)"; //1,49
-            cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) "; //1,18
+            cout << "\n\n [1] - 1/1\xB2 + 1/2\xB2 + 1/3\xB2 + 1/4\xB2... (Denominador de 1 em 1)"; 
+            cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) "; 
             cout << "\n\n [3] - 1/1x3 + 1/2x4 + 1/3x5 + 1/4x6... (Dois elementos do denominador de 1 em 1) "; 
             cout << "\n\n Para começar, escolha qual série deseja calcular >>> \t";
             cin >> op;
@@ -622,7 +622,7 @@ main()
 
                 for (int i = 1; i < (numero*2)-1; i += 2)
                 {
-                    cout<< "1/" <<i<<"\xB2 ";
+                    cout<< "1/" <<i<<"\xB2 + ";
                 }
 
 				cout<< "1/" <<(numero*2)-1<<"\xB2 = ";
@@ -641,7 +641,16 @@ main()
                     aux++;
                     serie = serie + (1 / resp);
                 }
-                cout << "\n O resultado da soma da sua série é: " << serie<< "\n\n";
+                
+                aux = 3;
+                for(int i = 1; i < numero; i++)
+                {
+            		cout<< "1/" <<i<<"x" <<aux << " + ";
+					aux++;			
+				}
+				cout<< "1/" <<numero<<"x"<<numero+1 << " = ";
+                
+                cout << serie<< "\n\n";
 
                 break;
             }
