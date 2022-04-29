@@ -763,12 +763,13 @@ main()
         }
         default:
         {
-            cout << "\n Escolha Inválida! Tente novamente >>> ";
-            cin >> op;
+            cout << "\n Escolha Inválida! Aperte qualquer tecla para tentar novamente >>> ";
+            x=1;
             getch();
             break;
         }
         }
 
-    } while (op != 8);
+    } while ((op != 8)||(x==1));
 }
+
