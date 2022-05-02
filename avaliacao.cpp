@@ -70,7 +70,7 @@ main()
         cin >> op;
         switch (op)
         {
-        case 1:
+        case 1: /*--------------------------- QUESTÃO 01 ---------------------------*/
         {
             cout << "\n ========================================";
             cout << "\n == QUESTÃO 01 - INVESTIGAÇÃO CRIMINAL ==";
@@ -88,11 +88,11 @@ main()
             } else if (opcao == 'S')
             {   
                 x=1;
-                cout << "\n\n OK. Vamos continuar: \n\n";
+                cout << "\n OK. Vamos continuar: \n";
                 break;
             } else {
                 x=0;
-                cout << "\n\n Não reconhecemos sua resposta, tente novamente...\n\n";
+                cout << "\n\n Não reconhecemos sua resposta, tente novamente...\t";
             }
             } while (x==0);
             do
@@ -338,7 +338,7 @@ main()
             system("pause");
             break;
         }
-        case 2:
+        case 2: /*--------------------------- QUESTÃO 02 ---------------------------*/
         {
             cout << "\n =====================================";
             cout << "\n == QUESTÃO 02 - ELEIÇÃO de SINDICO ==";
@@ -572,7 +572,7 @@ main()
             break;
         }
 
-        case 3:
+        case 3:    /*--------------------------- QUESTÃO 03 ---------------------------*/
         {
             cout << "\n ===================================";
             cout << "\n == QUESTÃO 03 - SÉRIES NUMERICAS ==";
@@ -581,12 +581,14 @@ main()
             cout << "\n\n [2] - 1/1\xB2 + 1/3\xB2 + 1/5\xB2 + 1/7\xB2... (Denominador de 2 em 2) "; 
             cout << "\n\n [3] - 1/1x3 + 1/2x4 + 1/3x5 + 1/4x6... (Dois elementos do denominador de 1 em 1) "; 
             cout << "\n\n Para começar, escolha qual série deseja calcular >>> \t";
+            x=0;
+            do{
             cin >> op;
             switch (op)
             {
             case 1:
             {
-                cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
+                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
                 for (int i = 1; i <= numero; i++)
@@ -595,7 +597,7 @@ main()
                     serie = serie + (1 / resp);
                 }
                 
-                cout << "\n\nResultado >>> ";
+                cout << "\n\n Resultado >>> ";
                 
                 for(int i = 1; i < numero; i++)
                 {
@@ -609,10 +611,10 @@ main()
 
             case 2:
             {
-                cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
+                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
 
-                cout << "\n\nResultado >>> ";
+                cout << "\n\n Resultado >>> ";
                
                 for (int i = 1; i <= numero; i += 2)
                 {
@@ -632,7 +634,7 @@ main()
 
             case 3:
             {
-                cout << "\n\nAgora, informe a quantidade de termos que vamos calcular >>> \t";
+                cout << "\n\n Agora, informe a quantidade de termos que vamos calcular >>> \t";
                 cin >> numero;
                 aux = 3;
                 for (int i = 1; i <= numero; i++)
@@ -655,15 +657,18 @@ main()
                 break;
             }
 
-            default:
+            default:{
+                cout << "\n Opção inválida! Escolha entre [1] [2] ou [3] >>> \t";
+                x = 1;
                 break;
+            } 
             }
-
+            } while (x==1);
             system("\n\npause");
             break;
         }
 
-        case 7:
+        case 7:   /*--------------------------- QUESTÃO 07 ---------------------------*/
         {
             cout << "\n =================================";
             cout << "\n == QUESTÃO 07 - NÚMEROS PRIMOS ==";
@@ -729,7 +734,7 @@ main()
                 {
                     if ((i == 0) || (i == 1)) //pre determina que 0 e 1 não são primos 
                     {
-                        nprimo = 1;
+                        nprimo = 1; 
                     }
                     else if ((i != 0) || (i != 1))
                     {
@@ -772,4 +777,3 @@ main()
 
     } while ((op != 8)||(x==1));
 }
-
