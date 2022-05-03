@@ -13,15 +13,35 @@ Data Inicio: 04/04/2022
 #include <iomanip>
 #include <conio.h> // Para usar o getch();
 #define TAM 10
+#define NUM 500
 
 int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
-int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto;
+int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto, number[NUM], numeroMenor, numeroMaior, menorMedia, maiorMedia, impares, pares, soma, media;
 float serie, resp;
 char escolha, repetir, opcao, respQuest[9];
 
-/*void bubble_sort_desc(int vetor[], int tam)
+void bubble_sort_cresc(int vetor[], int tam) //--------FUNCAO BUBBLE SORT ORDEM CRESCENTE
 {
     int aux;
+
+    for (int i = 0; i < tam; i++)
+    {
+        for (int j = 0; j < tam; j++)
+        {
+            if (vetor[i] < vetor[j])
+            {
+                aux = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = aux;
+            }
+        }
+    }
+}
+
+void bubble_sort_desc(int vetor[], int tam) //-------FUNCAO BUBBLE SORTE ORDEM DECRESCENTE
+{
+    int aux;
+
     for (int i = 0; i < tam; i++)
     {
         for (int j = 0; j < tam; j++)
@@ -34,7 +54,7 @@ char escolha, repetir, opcao, respQuest[9];
             }
         }
     }
-} DEIXAR FUNÇÃO AQUI, CASO EU UTILIZE*/
+}
 
 using namespace std;
 main()
@@ -61,7 +81,7 @@ main()
         cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO 
         cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
         cout << "\n [3] Questão 03 - Séries Matemáticas";    // OK PRONTO
-        cout << "\n [4] Questão 04 - Será liberada no dia 20/04/2022";
+        cout << "\n [4] Questão 04 - Vetor de Números Aleatórios"; //INICIALIZADO
         cout << "\n [5] Questão 05 - Será liberada no dia 20/04/2022";
         cout << "\n [6] Questão 06 - Será liberada no dia 20/04/2022";
         cout << "\n [7] Questão 07 - Números Primos"; // OK PRONTO
@@ -667,6 +687,85 @@ main()
             system("\n\npause");
             break;
         }
+        
+        case 4:  /*---------------------- QUESTÃO 04 ----------------------------*/
+        {
+        	cout << "\n =====================================";
+            cout << "\n == QUESTÃO 04 - VALORES ALEATÓRIOS ==";
+            cout << "\n =====================================\n\n";
+            
+            for (int i = 0; i < NUM; i++)
+		    {
+		        number[i] = (rand() % 5000) + 1;
+		        soma = soma + number[i];
+		    }
+		    media = soma/500;
+		    
+		    for (int i = 0; i < NUM; i++)
+		    {
+		        if(number[i]>media)
+		        	maiorMedia++;
+		        else if (number[i]<media)
+		        	menorMedia++;
+		        	
+		        if(number[i]%2==0)
+		        	pares++;
+		        else if(number[i]%2!=0)
+		        	impares++;
+		    }
+		    
+		    for (int i = 0; i < NUM; i++)
+		    {
+		        if (i == 0)
+		        {
+		            numeroMaior = number[i];
+		            numeroMenor = number[i];
+		        }
+		        else if (number[i] > numeroMaior)
+		        {
+		            numeroMaior = number[i];
+		        }
+		        else if (number[i] < numeroMenor)
+		        {
+		            numeroMenor = number[i];
+		        }
+		    }
+		    
+		    cout << "\n\n O maior numero é >>> " << numeroMaior;
+			cout << "\n O menor número é >>> " << numeroMenor;
+			cout << "\n A média dos numeros aleatórios é >>> " << media;
+			cout << "\n A quantidade de números maiores que a média é >>> " << maiorMedia;
+			cout << "\n A quantidade de números menores que a média é >>> " << menorMedia;
+			cout << "\n A quantidade de números pares é >>> " << pares;
+            cout << "\n A quantidade de números impares é >>> " << impares;
+            
+			cout << "\n >>> Agora vamos escolher como ordenar os numeros [D]DESCRESCENTE [C]CRESCENTE <<<";
+            cout << "\n Insira sua opção >>> ";
+            cin >> opcao; 
+            opcao = toupper(opcao);
+            	if(opcao == 'D')
+				{
+					cout << "\n ORDEM DECRESCENTE >>> ";
+            		bubble_sort_desc(number, NUM);
+            		for (int i = 0; i < NUM; i++)
+				    {
+				        cout << " | " << number[i];
+				    }
+				    cout << "\n\n";
+				} else if (opcao == 'C')
+				{
+					cout << "\n ORDEM CRESCENTE >>> ";
+					bubble_sort_cresc(number, NUM);
+					for (int i = 0; i < NUM; i++)
+				    {
+				        cout << " | " << number[i];
+				    }
+				    cout << "\n\n";
+				}	
+            
+            system("pause");
+            break;
+		}
 
         case 7:   /*--------------------------- QUESTÃO 07 ---------------------------*/
         {
@@ -732,7 +831,7 @@ main()
                 cin >> fim;
                 for (int i = inicio; i <= fim; i++)
                 {
-                    if ((i == 0) || (i == 1)) //pre determina que 0 e 1 não são primos 
+                    if ((i == 0) || (i == 1)) //pre determino que 0 e 1 não são primos 
                     {
                         nprimo = 1; 
                     }
