@@ -79,11 +79,11 @@ main()
         system("cls");
         cout << "\n ====================================================================================";
         cout << "\n [1] Questão 01 - Investigação Criminal"; // OK PRONTO 
-        cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO - VERIFICAR VALIDAÇÃO DO 2º SUPLENTE caso sobre tempo
+        cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO
         cout << "\n [3] Questão 03 - Séries Matemáticas";    // OK PRONTO
-        cout << "\n [4] Questão 04 - Vetor de Números Aleatórios"; //INICIALIZADO
-        cout << "\n [5] Questão 05 - Será liberada no dia 20/04/2022";
-        cout << "\n [6] Questão 06 - Será liberada no dia 20/04/2022";
+        cout << "\n [4] Questão 04 - Vetor de Números Aleatórios"; // OK PRONTO
+        cout << "\n [5] Questão 05 - Menu de Opções - Funções";
+        cout << "\n [6] Questão 06 - Desenho Utilizando Tabela ASCII";
         cout << "\n [7] Questão 07 - Números Primos"; // OK PRONTO
         cout << "\n [8] FIM.";
         cout << "\n\n\n\n ESCOLHA UMA OPÇÃO --> ";
@@ -766,6 +766,102 @@ main()
             system("pause");
             break;
 		}
+
+        case 5:   /*--------------------------- QUESTÃO 05 ---------------------------*/
+        {
+            int codCpf[11], aux[11], vDigUm[9], vDigDois[10], div, verificador1, verificador2;
+
+            cout << "\n =================================";
+            cout << "\n == QUESTÃO 05 - MENU DE OPÇÕES ==";
+            cout << "\n =================================";
+            x=0;
+            do{
+            cout << "\n [1] Função Void: VERIFICAÇÃO DE CPF";
+            cout << "\n [2] Função Int:";
+            cout << "\n [3] Função Float:";
+            cout << "\n [4] Função Livre:";
+            cout << "\n [5] Fim";
+            cout << "\n Insira sua opção >> ";
+            cin >> op;
+            switch (op){
+                case 1:{ //verifica de CPF é válido
+                    cout << "\n ======= VALIDAÇÃO DE CPF =======";
+                    cout << "\n Insira o Nº do CPF, sem caracteres especiais ou espaços >>>";
+                    /*RECEBENDO NUMEROS DO CPF*/
+                    for(int i=0; i<11;i++){
+                        cin >> codCpf[i];
+                        aux[i] = codCpf[i];
+                    }
+                    //DEFININDO 1º DIG VERIFICADOR
+                    /*Primeiro passo: multiplica-se cada um dos numeros, da direita para a esquerda por numeros crescentes a partir de 2
+                    e armazena os resultador em uma soma */
+                    for(int i=0; i<9;i++){
+                        for(int j=10; j>=2; j--){
+                            vDigUm[i] = codCpf[i]*j;
+                            soma = soma + vDigUm[i];
+                        } 
+                    }
+                    /*Segundo passo: pega o modulo da soma por 11*/
+                        div = soma%11;
+                    /*Verificação para deterinar 1º dig verificador, se menor que 2 --> 0, se não ---> 11 - resultado anterior*/
+                        if(div<2){
+                            verificador1 = 0;
+                        } else if (div>=2){
+                            verificador1 = 11-div;
+                        }
+                    /*penultima posição do vetor recebe o 1º digito verificador*/
+                        aux[10] = verificador1;
+
+                    //DEFININDO 2º DIG VERIFICADOR
+                    for(int i=0; i<10;i++){
+                        for(int j=11; j>=2; j--){
+                            vDigDois[i] = aux[i]*j;
+                            soma = soma + vDigDois[i];
+                        } 
+                        div = soma%11;
+                        if(div<2){
+                            verificador2 = 0;
+                        } else if (div>=2){
+                            verificador2 = 11-div;
+                        }
+                        aux[11] = verificador2;
+                    
+                    if(aux[10] == codCpf[10])
+                        cout << "\n CPF VÁLIDO!";  
+                    else if (aux[10] != codCpf[10])
+                        cout << "\n CPF INVÁLIDO!";  
+                }
+
+                case 2:{ //hexadecimal para binario
+
+                }
+
+                case 3:{ // resultado formula de bascara
+
+                }
+
+                case 4:{
+
+                }
+
+                case 5:{
+                    cout << "\n Finalizando Questão 05. Obrigada por usar até aqui! See you later ;) ";
+                    getch();
+                    break;
+                }
+                default:{
+                   x=1;
+                   cout << "\n Opção Inválida. Vamos tentar novamente...>> "; 
+                   getch();
+                   break;
+                }
+            }
+            } while ((op!=5)||(x==1));
+
+            cout << "\n\n";
+            system("pause");
+            break;
+        }
 
         case 7:   /*--------------------------- QUESTÃO 07 ---------------------------*/
         {
