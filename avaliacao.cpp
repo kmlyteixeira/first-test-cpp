@@ -11,7 +11,6 @@ Data Inicio: 04/04/2022
 #include <string>
 #include <stdlib.h>
 #include <iomanip>
-#include "bibliotecaKmly.h"
 #include <conio.h> // Para usar o getch();
 #define TAM 10
 #define NUM 500
@@ -21,7 +20,7 @@ int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot
 float serie, resp;
 char escolha, repetir, opcao, respQuest[9];
 
-/*void bubble_sort_cresc(int vetor[], int tam) //--------FUNCAO BUBBLE SORT ORDEM CRESCENTE
+void bubble_sort_cresc(int vetor[], int tam) //--------FUNCAO BUBBLE SORT ORDEM CRESCENTE
 {
     int aux;
 
@@ -55,7 +54,7 @@ void bubble_sort_desc(int vetor[], int tam) //-------FUNCAO BUBBLE SORTE ORDEM D
             }
         }
     }
-}*/
+}
 
 using namespace std;
 main()
