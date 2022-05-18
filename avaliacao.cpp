@@ -779,7 +779,7 @@ main()
             do{
             system("cls");
             cout << "\n [1] Função Void: VERIFICAÇÃO DE CPF";
-            cout << "\n [2] Função Int:";
+            cout << "\n [2] Função Int: CONVERSOR HEXADECIMAL p BINARIO";
             cout << "\n [3] Função Float:";
             cout << "\n [4] Função Livre:";
             cout << "\n [5] Fim";
@@ -852,12 +852,69 @@ main()
 				    cout << "\n CPF VÁLIDO!";  
 				else if ((aux[9] != aux2[9])&&(aux[10] != aux2[10]))
 				    cout << "\n CPF INVÁLIDO!";
+				
+				getch();
+				break;
 				}
                 case 2:{ //hexadecimal para binario
-
+                
+                char numHex[2]; 
+				int numBin[2];
+                
+                cout << "\n ======= CONVERSOR DE HEXADECIMAL p/ BINARIO =======";
+                cout << "\n Insira o nº Hexadecimal >>>";
+                fflush(stdin);
+				gets(numHex);
+				fflush(stdin);
+				
+				for(int i=0;i<2; i++){
+					numHex[i] = toupper(numHex[i]);
+				}
+				
+                for(int i=0; i<2; i++){
+                	if (numHex[i] == '0'){
+                		numBin[i] = 0000;
+					} else if (numHex[i] == '1'){
+						numBin[i] =  0001;
+					} else if (numHex[i] == '2'){
+						numBin[i] =  0010;
+					} else if (numHex[i] == '3'){
+						numBin[i] =  0011;
+					} else if (numHex[i] == '4'){
+						numBin[i] =  0100;
+					} else if (numHex[i] == '5'){
+						numBin[i] =  0101;
+					} else if (numHex[i] == '6'){
+						numBin[i] =  0110;
+					} else if (numHex[i] == '7'){
+						numBin[i] =  0111;
+					} else if (numHex[i] == '8'){
+						numBin[i] =  1000;
+					} else if (numHex[i] == '9'){
+						numBin[i] =  1001;
+					} else if (numHex[i] == 'A'){
+						numBin[i] =  1010;
+					} else if (numHex[i] == 'B'){
+						numBin[i] =  1011;
+					} else if (numHex[i] == 'C'){
+						numBin[i] =  1100;
+					} else if (numHex[i] == 'D'){
+						numBin[i] =  1101;
+					} else if (numHex[i] == 'E'){
+						numBin[i] =  1110;
+					} else if (numHex[i] == 'F'){
+						numBin[i] =  1111;
+					} 
+				}
+				 cout << "Convertido para Binário: ";
+				 cout << numBin[0] << " ";
+				 cout << numBin[1];
+				
+				getch();
+				break;
                 }
 
-                case 3:{ // resultado formula de bascara
+                case 3:{ // resultado formula de baskhara
 
                 }
 
