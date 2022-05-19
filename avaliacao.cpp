@@ -11,6 +11,7 @@ Data Inicio: 04/04/2022
 #include <string>
 #include <stdlib.h>
 #include <iomanip>
+#include <unistd.h>
 #include <conio.h> // Para usar o getch();
 #define TAM 10
 #define NUM 500
@@ -19,6 +20,27 @@ int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positiv
 int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto, number[NUM], numeroMenor, numeroMaior, menorMedia, maiorMedia, impares, pares, soma, media;
 float serie, resp;
 char escolha, repetir, opcao, respQuest[9];
+
+int CaraOuCoroa (int qtdGiros, int numSorte, char aposta){
+    char sort;
+    int acumSorte;
+
+    for(int i=1; i<=qtdGiros; i++){
+        acumSorte = acumSorte + ((i*numSorte)-qtdGiros);
+    }
+
+    if(acumSorte%2==0){
+        sort = 'A'; //CARA
+    } else if (acumSorte%2!=0){
+        sort = 'C'; //COROA
+    }
+
+    if(sort == aposta){
+        return 0;
+    } else if (sort != aposta){
+        return 1;
+    }
+}
 
 void bubble_sort_cresc(int vetor[], int tam) //--------FUNCAO BUBBLE SORT ORDEM CRESCENTE
 {
@@ -779,9 +801,9 @@ main()
             do{
             system("cls");
             cout << "\n [1] Função Void: VERIFICAÇÃO DE CPF";
-            cout << "\n [2] Função Int: CONVERSOR HEXADECIMAL p BINARIO";
+            cout << "\n [2] Função Int: JOGO CARA ou COROA";
             cout << "\n [3] Função Float:";
-            cout << "\n [4] Função Livre:";
+            cout << "\n [4] Função Livre: CONVERSOR HEXADECIMAL p BINARIO";
             cout << "\n [5] Fim";
             cout << "\n Insira sua opção >> ";
             cin >> op;
@@ -789,7 +811,7 @@ main()
                 case 1:{ //verifica de CPF é válido
                     cout << "\n ======= VALIDAÇÃO DE CPF =======";
                     cout << "\n Insira o Nº do CPF, sem caracteres especiais ou espaços >>>";
-                    /*RECEBENDO NUMEROS DO CPF*/
+                    //RECEBENDO NUMEROS DO CPF
                     fflush(stdin);
 					gets(codCpf);
 					fflush(stdin);
@@ -801,25 +823,25 @@ main()
 				    }
 				    
 				    //DEFININDO 1º DIG VERIFICADOR
-				    /*Primeiro passo: multiplica-se cada um dos numeros, da direita para a esquerda por numeros crescentes a partir de 2
-				    e armazena os resultador em uma soma */
+				    //Primeiro passo: multiplica-se cada um dos numeros, da direita para a esquerda por numeros crescentes a partir de 2
+				    //e armazena os resultador em uma soma 
 					int j=10;
 				    for(int i=0; i<9; i++){
 				    	mult = aux[i]*j;
 				    	j--;
 				    	soma = soma + mult;
 					}
-				    /*Segundo passo: pega o modulo da soma por 11*/
+				    //Segundo passo: pega o modulo da soma por 11
 				        div = soma%11;
 				        
-				    /*Verificação para deterinar 1º dig verificador, se menor que 2 --> 0, se não ---> 11 - resultado anterior*/
+				    //Verificação para deterinar 1º dig verificador, se menor que 2 --> 0, se não ---> 11 - resultado anterior
 				        if(div<2){
 				            verificador1 = 0;
 				        } else if (div>=2){
 				            verificador1 = 11-div;
 				        }
 				        
-				    /*penultima posição do vetor recebe o 1º digito verificador*/
+				    //penultima posição do vetor recebe o 1º digito verificador
 				    for(int i=0; i<11;i++){
 				    	if(i==9){
 				        	aux2[9] = verificador1;
@@ -856,7 +878,81 @@ main()
 				getch();
 				break;
 				}
-                case 2:{ //hexadecimal para binario
+                case 2:{ //jogo Cara ou coroa?
+                int qtdGiros, numSorte, acumSorte, retornoF;
+                char aposta, opcao;
+
+                x=0;
+                cout << "\n ======= JOGO CARA ou COROA =======";
+                cout << "\n Insira a quantidade de vezes que deseja rodar a moeda >> ";
+                cin >> qtdGiros;
+                cout << "\n Para deixarmos o jogo interessante, gostaria de informar seu número da SORTE? [S]SIM [N]NÃO";
+                cin >> opcao;
+                opcao = toupper(opcao);
+                if(opcao == 'S'){
+                    cout << "\n Digite o número da SORTE >>> ";
+                    cin >> numSorte;
+                } else {
+                    cout << "\n OK. Sem seu número da Sorte desta vez.";
+                    numSorte = 13;
+                }
+                cout << "\n Nos diga qual a sua aposta: [A]CARA [C]COROA ";
+                do{
+                cin >> aposta;
+                aposta = toupper(aposta);
+                if (aposta == 'A' || aposta =='C')
+                    x=0;
+                else {
+                    cout << "\n Resposta inválida. Tente novamente [A]CARA [C]COROA >> ";
+                    x=1;
+                }
+
+                } while (x=0);
+
+                cout << "\n Tudo pronto! VAMOS COMEÇAR! Aperte qualquer tecla para continuar...";
+                getch();
+
+                cout << "\n Preparando moeda...";
+                sleep (2);
+                cout << "\n Jogando moeda...";
+                sleep (2);
+                cout << "\n Moeda retornando...";
+                sleep (2);
+                cout << "\n E então...";
+                sleep (3);
+
+                //função
+                retornoF = CaraOuCoroa(qtdGiros,numSorte,aposta);
+
+                if (retornoF == 0 && aposta == 'A'){
+                   cout << "\n\n UAU! CARA! Você é uma pessoa de sorte! ";
+                   getch(); 
+                } 
+
+                if (retornoF == 0 && aposta == 'C'){
+                   cout << "\n\n UAU! COROA! Você é uma pessoa de sorte! ";
+                   getch(); 
+                }
+
+                if (retornoF == 1 && aposta == 'A'){
+                   cout << "\n\n QUE PENA! Virou COROA! Quem sabe na próxima! ";
+                   getch(); 
+                } 
+
+                if (retornoF == 1 && aposta == 'C'){
+                   cout << "\n\n QUE PENA! Virou CARA! Quem sabe na próxima! "; 
+                   getch();
+                }
+            
+                getch();
+                break;
+                }
+
+                case 3:{ // resultado formula de baskhara
+
+                }
+
+                case 4:{ //hexadecimal para binario
                 
                 char numHex[2]; 
 				int numBin[2];
@@ -906,20 +1002,12 @@ main()
 						numBin[i] =  1111;
 					} 
 				}
-				 cout << "Convertido para Binário: ";
+				 cout << " Hexacimal: "numHex[0] << numHex[1] << " convertido para Binário: ";
 				 cout << numBin[0] << " ";
 				 cout << numBin[1];
 				
 				getch();
 				break;
-                }
-
-                case 3:{ // resultado formula de baskhara
-
-                }
-
-                case 4:{
-
                 }
 
                 case 5:{
