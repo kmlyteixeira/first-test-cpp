@@ -16,10 +16,36 @@ Data Inicio: 04/04/2022
 #define TAM 10
 #define NUM 500
 
-int i, x = 0, y = 0, op, numero = 0, inicio, fim, contador, aux, nprimo, positivo = 0;
-int negativo = 0, braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto, number[NUM], numeroMenor, numeroMaior, menorMedia, maiorMedia, impares, pares, soma, media;
+//definição variaveis 
+
+//gerais
+int op, i, x = 0, y = 0, numero = 0, aux;
+char opcao;
+
+//Questão 01
+int positivo = 0, negativo = 0;
+char respQuest[9];
+
+//Questão 02
+int braCoo, henCav, ianSom, rodHil, chrPra, priSup, segSup, somVot, sindico, qntEleitor, voto; 
+
+// Questão 03
 float serie, resp;
-char escolha, repetir, opcao, respQuest[9];
+
+// Questão 04
+int number[NUM], numeroMenor, numeroMaior, menorMedia, maiorMedia, impares, pares, soma, media;
+
+// Questão 07 
+int inicio, fim, contador, nprimo;
+char escolha, repetir;
+
+float Equacao1Grau (float a, float b){
+    float solucao;
+
+    solucao = -b/a;
+
+    return solucao;
+}
 
 int CaraOuCoroa (int qtdGiros, int numSorte, char aposta){
     char sort;
@@ -104,8 +130,8 @@ main()
         cout << "\n [2] Questão 02 - Eleição de Sindico";    // OK PRONTO
         cout << "\n [3] Questão 03 - Séries Matemáticas";    // OK PRONTO
         cout << "\n [4] Questão 04 - Vetor de Números Aleatórios"; // OK PRONTO
-        cout << "\n [5] Questão 05 - Menu de Opções - Funções";
-        cout << "\n [6] Questão 06 - Desenho Utilizando Tabela ASCII";
+        cout << "\n [5] Questão 05 - Menu de Opções - Funções"; // OK PRONTO
+        cout << "\n [6] Questão 06 - Desenho Utilizando Tabela ASCII"; // ENTREGA SEPARADA
         cout << "\n [7] Questão 07 - Números Primos"; // OK PRONTO
         cout << "\n [8] FIM.";
         cout << "\n\n\n\n ESCOLHA UMA OPÇÃO --> ";
@@ -878,7 +904,7 @@ main()
 				getch();
 				break;
 				}
-                case 2:{ //jogo Cara ou coroa?
+                case 2:{ //jogo Cara ou coroa
                 int qtdGiros, numSorte, acumSorte, retornoF;
                 char aposta, opcao;
 
@@ -948,8 +974,30 @@ main()
                 break;
                 }
 
-                case 3:{ // resultado formula de baskhara
+                case 3:{ // resultado formula de baskhara float
+                float a,b, result;
 
+                cout << "\n ======= Resolvendo uma Equação de 1ª Grau =======";
+                cout << "\n ================= f(x) = ax + b =================";
+                cout << "\n Insira o 1º Coeficiente >> ";
+                cin >> a;
+                cout << "\n Insira o 2º Coeficiente >> ";
+                cin >> b;
+                
+
+                 // função equação de 1º grau 
+                result = Equacao1Grau(a,b);
+
+                cout << "\n RESOLUÇÃO >>> f(x) = ax + b ";
+                sleep (2);
+                cout << "\n "<<a<<"x + "<<b;
+                sleep (2);
+                cout << "\n "<<a<<"x = -"<<b;
+                sleep (2);
+                cout << "\n x = -"<<b<<"/"<<a;
+                sleep (2);
+                cout << "\n RESULTADO >>> ";
+                cout << " x = " << result;
                 }
 
                 case 4:{ //hexadecimal para binario
@@ -1030,6 +1078,14 @@ main()
             break;
         		
 		}
+
+        case 6:
+        {
+            cout << "\n\n ENTREGUE SEPARADAMENTE";
+
+            getch();
+            break;
+        }
         case 7:   /*--------------------------- QUESTÃO 07 ---------------------------*/
         {
             cout << "\n =================================";
