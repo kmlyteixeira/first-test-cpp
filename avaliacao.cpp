@@ -3,7 +3,7 @@ Faculdade SENAC - Joinville - SC
 Profª: Cláudia Werlich
 Atividade Avaliativa de Introdução a Programação de Computadores
 ALUNA: Kemily Teixeira da Rosa
-Data Inicio: 04/04/2022
+Entrega: 21/05/2022
 (Altere a data conforme a entrega)
 */
 
@@ -15,6 +15,8 @@ Data Inicio: 04/04/2022
 #include <conio.h> // Para usar o getch();
 #define TAM 10
 #define NUM 500
+
+using namespace std;
 
 //definição variaveis 
 
@@ -35,9 +37,79 @@ float serie, resp;
 // Questão 04
 int number[NUM], numeroMenor, numeroMaior, menorMedia, maiorMedia, impares, pares, soma, media;
 
+//Questão 05
+char codCpf[10],aposta, numHex[2];
+float a,b, result;
+int qtdGiros, numSorte, acumSorte, retornoF, numBin[2];
+
 // Questão 07 
 int inicio, fim, contador, nprimo;
 char escolha, repetir;
+
+/*
+		FUNÇÕES UTILIZADAS NA QUESTÃO 05
+*/
+void validaCpf(char codCpf[10]){
+	int  div, verificador1, verificador2, aux[10], aux2[10], mult;
+	//Transformando valor recebido em int
+    for(int i=0; i<11;i++){
+        aux[i] = codCpf[i] - '0';
+        cout << " " << aux[i];
+    }
+    
+    //DEFININDO 1º DIG VERIFICADOR
+    //Primeiro passo: multiplica-se cada um dos numeros, da direita para a esquerda por numeros crescentes a partir de 2
+    //e armazena os resultador em uma soma 
+	int j=10;
+    for(int i=0; i<9; i++){
+    	mult = aux[i]*j;
+    	j--;
+    	soma = soma + mult;
+	}
+    //Segundo passo: pega o modulo da soma por 11
+        div = soma%11;
+        
+    //Verificação para deterinar 1º dig verificador, se menor que 2 --> 0, se não ---> 11 - resultado anterior
+        if(div<2){
+            verificador1 = 0;
+        } else if (div>=2){
+            verificador1 = 11-div;
+        }
+        
+    //penultima posição do vetor recebe o 1º digito verificador
+    for(int i=0; i<11;i++){
+    	if(i==9){
+        	aux2[9] = verificador1;
+		} else
+			aux2[i] = codCpf[i] - '0';
+    }
+	
+	mult=0;
+	soma=0;
+	div = 0;
+	
+    //DEFININDO 2º DIG VERIFICADOR
+    j=11;
+    for(int i=0; i<10; i++){
+    	mult = aux2[i]*j;
+    	j--;
+    	soma = soma + mult;
+	}
+	div = soma%11;
+	
+	if(div<2){
+            verificador2 = 0;
+        } else if (div>=2){
+            verificador2 = 11-div;
+        }
+        
+    aux2[10] = verificador2;
+
+	if((aux[9] == aux2[9])&&(aux[10] == aux2[10]))
+	    cout << "\n CPF VÁLIDO!";  
+	else if ((aux[9] != aux2[9])&&(aux[10] != aux2[10]))
+	    cout << "\n CPF INVÁLIDO!";
+}
 
 float Equacao1Grau (float a, float b){
     float solucao;
@@ -104,7 +176,7 @@ void bubble_sort_desc(int vetor[], int tam) //-------FUNCAO BUBBLE SORTE ORDEM D
     }
 }
 
-using namespace std;
+
 main()
 {
     setlocale(LC_ALL, "Portuguese");
@@ -817,9 +889,6 @@ main()
 
         case 5:   /*--------------------------- QUESTÃO 05 ---------------------------*/
         {
-        	int  div, verificador1, verificador2, aux[10], aux2[10], mult;
-            char codCpf[10];
-			
             cout << "\n =================================";
             cout << "\n == QUESTÃO 05 - MENU DE OPÇÕES ==";
             cout << "\n =================================";
@@ -828,7 +897,7 @@ main()
             system("cls");
             cout << "\n [1] Função Void: VERIFICAÇÃO DE CPF";
             cout << "\n [2] Função Int: JOGO CARA ou COROA";
-            cout << "\n [3] Função Float:";
+            cout << "\n [3] Função Float: EQUAÇÃO DE 1º GRAU";
             cout << "\n [4] Função Livre: CONVERSOR HEXADECIMAL p BINARIO";
             cout << "\n [5] Fim";
             cout << "\n Insira sua opção >> ";
@@ -842,72 +911,13 @@ main()
 					gets(codCpf);
 					fflush(stdin);
                  	
-                 	//Transformando valor recebido em int
-				    for(int i=0; i<11;i++){
-				        aux[i] = codCpf[i] - '0';
-				        cout << " " << aux[i];
-				    }
-				    
-				    //DEFININDO 1º DIG VERIFICADOR
-				    //Primeiro passo: multiplica-se cada um dos numeros, da direita para a esquerda por numeros crescentes a partir de 2
-				    //e armazena os resultador em uma soma 
-					int j=10;
-				    for(int i=0; i<9; i++){
-				    	mult = aux[i]*j;
-				    	j--;
-				    	soma = soma + mult;
-					}
-				    //Segundo passo: pega o modulo da soma por 11
-				        div = soma%11;
-				        
-				    //Verificação para deterinar 1º dig verificador, se menor que 2 --> 0, se não ---> 11 - resultado anterior
-				        if(div<2){
-				            verificador1 = 0;
-				        } else if (div>=2){
-				            verificador1 = 11-div;
-				        }
-				        
-				    //penultima posição do vetor recebe o 1º digito verificador
-				    for(int i=0; i<11;i++){
-				    	if(i==9){
-				        	aux2[9] = verificador1;
-						} else
-							aux2[i] = codCpf[i] - '0';
-				    }
-					
-					mult=0;
-					soma=0;
-					div = 0;
-					
-				    //DEFININDO 2º DIG VERIFICADOR
-				    j=11;
-				    for(int i=0; i<10; i++){
-				    	mult = aux2[i]*j;
-				    	j--;
-				    	soma = soma + mult;
-					}
-					div = soma%11;
-					
-					if(div<2){
-				            verificador2 = 0;
-				        } else if (div>=2){
-				            verificador2 = 11-div;
-				        }
-				        
-				    aux2[10] = verificador2;
-		  
-				if((aux[9] == aux2[9])&&(aux[10] == aux2[10]))
-				    cout << "\n CPF VÁLIDO!";  
-				else if ((aux[9] != aux2[9])&&(aux[10] != aux2[10]))
-				    cout << "\n CPF INVÁLIDO!";
+            		validaCpf(codCpf);
 				
 				getch();
 				break;
 				}
                 case 2:{ //jogo Cara ou coroa
-                int qtdGiros, numSorte, acumSorte, retornoF;
-                char aposta, opcao;
-
+                
                 x=0;
                 cout << "\n ======= JOGO CARA ou COROA =======";
                 cout << "\n Insira a quantidade de vezes que deseja rodar a moeda >> ";
@@ -975,7 +985,6 @@ main()
                 }
 
                 case 3:{ // resultado formula de baskhara float
-                float a,b, result;
 
                 cout << "\n ======= Resolvendo uma Equação de 1ª Grau =======";
                 cout << "\n ================= f(x) = ax + b =================";
@@ -998,12 +1007,12 @@ main()
                 sleep (2);
                 cout << "\n RESULTADO >>> ";
                 cout << " x = " << result;
+                
+                system("pause");
+                break;
                 }
 
                 case 4:{ //hexadecimal para binario
-                
-                char numHex[2]; 
-				int numBin[2];
                 
                 cout << "\n ======= CONVERSOR DE HEXADECIMAL p/ BINARIO =======";
                 cout << "\n Insira o nº Hexadecimal >>>";
@@ -1050,7 +1059,7 @@ main()
 						numBin[i] =  1111;
 					} 
 				}
-				 cout << " Hexacimal: "numHex[0] << numHex[1] << " convertido para Binário: ";
+				 cout << " Hexacimal: "<<numHex[0] << numHex[1] << " convertido para Binário: ";
 				 cout << numBin[0] << " ";
 				 cout << numBin[1];
 				
@@ -1081,7 +1090,7 @@ main()
 
         case 6:
         {
-            cout << "\n\n ENTREGUE SEPARADAMENTE";
+            cout << "\n\n DESENHO ENTREGUE SEPARADAMENTE";
 
             getch();
             break;
